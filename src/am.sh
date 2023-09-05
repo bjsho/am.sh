@@ -58,17 +58,30 @@ Q                       Quit np and Music.app
 				rm ~/Library/Scripts/tmp*
 				osascript ~/Library/Scripts/album-art.applescript
 				if [ -f ~/Library/Scripts/tmp.png ]; then
-					art=$(clear; ~/CLI/imgcat -W 30 ~/Library/Scripts/tmp.jpg)
+					art=$(clear; imgcat -W 30 ~/Library/Scripts/tmp.jpg)
 				else
-					art=$(clear; ~/CLI/imgcat -W 30 ~/Library/Scripts/tmp.jpg)
+					art=$(clear; imgcat -W 30 ~/Library/Scripts/tmp.jpg)
 				fi
 			fi
-			#cyan=$(echo -e '\033[1;34m')
-			#magenta=$(echo -e '\033[01;35m')
-			#nocolor=$(echo -e '\033[0m')
-			cyan=$(echo -e '\033[1;32m')
-			magenta=$(echo -e '\033[1;32m')
-			nocolor=$(echo -e '\033[0m')
+
+			light_black=$(echo -e '\033[1;30m')
+			light_red=$(echo -e '\033[1;31m')
+			light_green=$(echo -e '\033[1;32m')
+			light_yellow=$(echo -e '\033[1;33m')
+			light_blue=$(echo -e '\033[1;34m')
+			light_magenta=$(echo -e '\033[1;35m')
+			light_cyan=$(echo -e '\033[1;36m')
+			white=$(echo -e '\033[1;37m')
+			black=$(echo -e '\033[30m')
+			red=$(echo -e '\033[31m')
+			green=$(echo -e '\033[32m')
+			yellow=$(echo -e '\033[33m')
+			blue=$(echo -e '\033[34m')
+			magenta=$(echo -e '\033[35m')
+			cyan=$(echo -e '\033[36m')
+			grey=$(echo -e '\033[37m') # same as nocolour
+			nocolour=$(echo -e '\033[m')
+
 		fi
 		if [ $vol = 0 ]; then
 			volIcon=󰸈
@@ -91,16 +104,16 @@ Q                       Quit np and Music.app
 		volBars='▁▂▃▄▅▆▇'
 		volBG=${volBars:$vol}
 		vol=${volBars:0:$vol}
-		progressBars='▇▇▇▇▇▇▇▇▇'
-		percentRemain=$(( (curr * 100) / end / 10 ))
+		progressBars='▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇'
+		percentRemain=$(( (curr * 100) / end / 2.55))
 		progBG=${progressBars:$percentRemain}
 		prog=${progressBars:0:$percentRemain}
 		if [ "$1" = "-t" ]
 		then
 			clear
-			paste <(printf '%s\n' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${cyan}${prog}${nocolor}${progBG} $endMin:$endSec)" "$volIcon $(echo "${magenta}$vol${nocolor}$volBG")") 
+			paste <(printf '%s\n' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${green}${prog}${nocolour}${progBG} $endMin:$endSec)" "$volIcon $(echo "${green}$vol${nocolour}$volBG")") 
 		else 
-			paste <(printf %s "$art") <(printf '%s\n' '' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${cyan}${prog}${nocolor}${progBG} $endMin:$endSec)" "$volIcon $(echo "${magenta}$vol${nocolor}$volBG")") 
+			paste <(printf '%s\n' '' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${green}${prog}${nocolour}${progBG} $endMin:$endSec "$volIcon $(echo "${green}$vol${nocolour}$volBG")")") <(printf %s "$art") 
 		fi
 		if [ $help = 'true' ]; then
 			printf '%s\n' "$keybindings"

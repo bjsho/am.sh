@@ -90,7 +90,7 @@ Q                       Quit np and Music.app
 		fi
 		vol=$(( vol / 12 ))
 		if [ $shuffle = 'false' ]; then
-			shuffleIcon='➡️ '
+			shuffleIcon='󱦰'
 		else
 			shuffleIcon=󰒟
 		fi

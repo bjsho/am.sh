@@ -4,7 +4,7 @@
 
 **Goal:** Provide a simple command-line interface to listing out, playing songs from, and utilizing controls for Music.app.  I decided against using a library such as ncurses to build a full TUI application, as I think it is preferable to interface via quick commands and a light "widget".
 
-<img src="np.png" width="800"/>
+<img src="np.png" width="400"/>
 
 ## Modified by me, ben
 

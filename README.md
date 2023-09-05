@@ -1,25 +1,35 @@
 # Apple Music CLI Player
 
-*Tested on macOS 12 & 13 (likely to work on macOS 10.15, 11). **Can be called with the system default zsh.** I recommend aliasing am.sh to `alias am=zsh path/to/am.sh`, or moving its three individual functions into your .zshrc.*
+*Tested on macOS 12 (likely to work on macOS 10.15, 11, 13). **Can be called with the system default zsh.** I recommend aliasing am.sh to `alias am=zsh path/to/am.sh`, or moving its three individual functions into your .zshrc.*
 
 **Goal:** Provide a simple command-line interface to listing out, playing songs from, and utilizing controls for Music.app.  I decided against using a library such as ncurses to build a full TUI application, as I think it is preferable to interface via quick commands and a light "widget".
 
 <img src="np.png" width="800"/>
 
+## Modified by me, ben
+
+- now using imgcat instead of viu
+  - to actually show the pic and not some pixels
+- rearranged the text to the bottom
+- made the time bar and volume bar green as default (can be changed to different colours in the code)
+- made the time bar longer
+- removed emojis, now using glyphs of nerd fonts
+- moved the volume bar next to the time bar
+
 ## Now Playing (np)
 
-Enjoy a simple "Now Playing" widget from your terminal.  Uses standard Unix tooling/piping, AppleScript for interfacing with Apple Music, and [Viu](https://github.com/atanunq/viu) for displaying the album art images.  It also includes keyboard shortcut bindings for basic playback controls.  Apart from toggling shuffle, toggling repeat, and changing the Music.app-specific volume, the other controls are already accessible from the special Fn key functions/touch bar.  
+Enjoy a simple "Now Playing" widget from your terminal.  Uses standard Unix tooling/piping, AppleScript for interfacing with Apple Music, and [imgcat](https://iterm2.com/documentation-images.html) for displaying the album art images.  It also includes keyboard shortcut bindings for basic playback controls.  Apart from toggling shuffle, toggling repeat, and changing the Music.app-specific volume, the other controls are already accessible from the special Fn key functions/touch bar.  
 
-Dependencies: [Viu](https://github.com/atanunq/viu) (unless you always use text mode)
+Dependencies: [imgcat](https://iterm2.com/documentation-images.html) (unless you always use text mode)
 
 Configuration: 
 
 * Place album-art.applescript at ~/Library/Scripts/album-art.applescript, or configure a valid path in the np() func of am.sh for wherever you decide to keep it
-* (Optional) In the np() func of am.sh, adjust the `-h` dimension of the album art (look for the two calls to `viu`) to ensure a square appearance with your terminal emulator's line spacing
+* (Optional) In the np() func of am.sh, adjust the `-W` dimension of the album art (look for the two calls to `imgcat`) to ensure a square appearance with your terminal emulator's line spacing
 
 Usage (aliased): `am np`
 
-Usage (not aliased): `zsh am.sh np`
+Usage (not aliased): `zsh /path/to/am.sh np`
 ```
 np                    Open the "Now Playing" TUI widget.
                       (Music.app track must be actively

@@ -343,8 +343,8 @@ usage="Usage: am.sh [function] [-grouping] [name]
   >                     Begin fast forwarding current track
   <                     Begin rewinding current track
   R                     Resume normal playback
-  +                     Increase Music.app volume 5%
-  -                     Decrease Music.app volume 5%
+  +                     Increase Music.app volume 10%
+  -                     Decrease Music.app volume 10%
   s                     Toggle shuffle
   r                     Toggle song repeat
   q                     Quit np

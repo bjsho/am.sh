@@ -58,32 +58,35 @@ Q                       Quit np and Music.app
 				rm ~/Library/Scripts/tmp*
 				osascript ~/Library/Scripts/album-art.applescript
 				if [ -f ~/Library/Scripts/tmp.png ]; then
-					art=$(clear; viu -b ~/Library/Scripts/tmp.png -w 31 -h 14)
+					art=$(clear; ~/CLI/imgcat -W 30 ~/Library/Scripts/tmp.jpg)
 				else
-					art=$(clear; viu -b ~/Library/Scripts/tmp.jpg -w 31 -h 14)
+					art=$(clear; ~/CLI/imgcat -W 30 ~/Library/Scripts/tmp.jpg)
 				fi
 			fi
-			cyan=$(echo -e '\e[00;36m')
-			magenta=$(echo -e '\033[01;35m')
+			#cyan=$(echo -e '\033[1;34m')
+			#magenta=$(echo -e '\033[01;35m')
+			#nocolor=$(echo -e '\033[0m')
+			cyan=$(echo -e '\033[1;32m')
+			magenta=$(echo -e '\033[1;32m')
 			nocolor=$(echo -e '\033[0m')
 		fi
 		if [ $vol = 0 ]; then
-			volIcon=🔇
+			volIcon=󰸈
 		else
-			volIcon=🔊
+			volIcon=󰕾
 		fi
 		vol=$(( vol / 12 ))
 		if [ $shuffle = 'false' ]; then
 			shuffleIcon='➡️ '
 		else
-			shuffleIcon=🔀
+			shuffleIcon=󰒟
 		fi
 		if [ $repeat = 'off' ]; then
-			repeatIcon='↪️ '
+			repeatIcon='󰑗'
 		elif [ $repeat = 'one' ]; then
-			repeatIcon=🔂
+			repeatIcon=󰑘
 		else
-			repeatIcon=🔁
+			repeatIcon=󰑖
 		fi
 		volBars='▁▂▃▄▅▆▇'
 		volBG=${volBars:$vol}
@@ -96,8 +99,8 @@ Q                       Quit np and Music.app
 		then
 			clear
 			paste <(printf '%s\n' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${cyan}${prog}${nocolor}${progBG} $endMin:$endSec)" "$volIcon $(echo "${magenta}$vol${nocolor}$volBG")") 
-		else
-			paste <(printf %s "$art") <(printf %s "") <(printf %s "") <(printf %s "") <(printf '%s\n' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${cyan}${prog}${nocolor}${progBG} $endMin:$endSec)" "$volIcon $(echo "${magenta}$vol${nocolor}$volBG")") 
+		else 
+			paste <(printf %s "$art") <(printf '%s\n' '' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${cyan}${prog}${nocolor}${progBG} $endMin:$endSec)" "$volIcon $(echo "${magenta}$vol${nocolor}$volBG")") 
 		fi
 		if [ $help = 'true' ]; then
 			printf '%s\n' "$keybindings"
@@ -118,9 +121,9 @@ Q                       Quit np and Music.app
 				osascript -e 'tell application "Music" to set song repeat to off'
 			fi
 		elif [[ "${input}" == *"+"* ]]; then
-			osascript -e 'tell application "Music" to set sound volume to sound volume + 5'
+			osascript -e 'tell application "Music" to set sound volume to sound volume + 10'
 		elif [[ "${input}" == *"-"* ]]; then
-			osascript -e 'tell application "Music" to set sound volume to sound volume - 5'
+			osascript -e 'tell application "Music" to set sound volume to sound volume - 10'
 		elif [[ "${input}" == *">"* ]]; then
 			osascript -e 'tell application "Music" to fast forward'
 		elif [[ "${input}" == *"<"* ]]; then

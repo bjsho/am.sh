@@ -64,14 +64,6 @@ Q                       Quit np and Music.app
 				fi
 			fi
 
-			light_black=$(echo -e '\033[1;30m')
-			light_red=$(echo -e '\033[1;31m')
-			light_green=$(echo -e '\033[1;32m')
-			light_yellow=$(echo -e '\033[1;33m')
-			light_blue=$(echo -e '\033[1;34m')
-			light_magenta=$(echo -e '\033[1;35m')
-			light_cyan=$(echo -e '\033[1;36m')
-			white=$(echo -e '\033[1;37m')
 			black=$(echo -e '\033[30m')
 			red=$(echo -e '\033[31m')
 			green=$(echo -e '\033[32m')
@@ -80,6 +72,14 @@ Q                       Quit np and Music.app
 			magenta=$(echo -e '\033[35m')
 			cyan=$(echo -e '\033[36m')
 			grey=$(echo -e '\033[37m') # same as nocolour
+			bright_black=$(echo -e '\033[1;30m')
+			bright_red=$(echo -e '\033[1;31m')
+			bright_green=$(echo -e '\033[1;32m')
+			bright_yellow=$(echo -e '\033[1;33m')
+			bright_blue=$(echo -e '\033[1;34m')
+			bright_magenta=$(echo -e '\033[1;35m')
+			bright_cyan=$(echo -e '\033[1;36m')
+			white=$(echo -e '\033[1;37m')
 			nocolour=$(echo -e '\033[m')
 
 		fi

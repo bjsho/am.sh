@@ -90,12 +90,12 @@ Q                       Quit np and Music.app
 		fi
 		vol=$(( vol / 12 ))
 		if [ $shuffle = 'false' ]; then
-			shuffleIcon='󱦰'
+			shuffleIcon=${red}󱦰${nocolour}
 		else
 			shuffleIcon=󰒟
 		fi
 		if [ $repeat = 'off' ]; then
-			repeatIcon='󰑗'
+			repeatIcon=${red}󰑗${nocolour}
 		elif [ $repeat = 'one' ]; then
 			repeatIcon=󰑘
 		else

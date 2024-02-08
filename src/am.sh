@@ -111,9 +111,9 @@ Q                       Quit np and Music.app
 		if [ "$1" = "-t" ]
 		then
 			clear
-			paste <(printf '%s\n' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${green}${prog}${nocolour}${progBG} $endMin:$endSec)" "$volIcon $(echo "${green}$vol${nocolour}$volBG")") 
-		else 
-			paste <(printf '%s\n' '' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${green}${prog}${nocolour}${progBG} $endMin:$endSec "$volIcon $(echo "${green}$vol${nocolour}$volBG")")") <(printf %s "$art") 
+			paste <(printf '%s\n' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${green}${prog}${nocolour}${progBG} $endMin:$endSec)" "$volIcon $(echo "${green}$vol${nocolour}$volBG")")
+		else
+			paste <(printf '%s\n' '' "$name" "$artist - $record" "$shuffleIcon $repeatIcon $(echo $currMin:$currSec ${green}${prog}${nocolour}${progBG} $endMin:$endSec "$volIcon $(echo "${green}$vol${nocolour}$volBG")")") <(printf %s "$art")
 		fi
 		if [ $help = 'true' ]; then
 			printf '%s\n' "$keybindings"
@@ -329,12 +329,12 @@ usage="Usage: am.sh [function] [-grouping] [name]
   play -g              	Fzf for a genre and begin playback.
   play -g PATTERN       Play from the genre PATTERN.
   play -l              	Play from your entire library.
-  
+
   np                    Open the \"Now Playing\" TUI widget.
                         (Music.app track must be actively
 			playing or paused)
   np -t			Open in text mode (disables album art)
- 
+
   np keybindings:
 
   p                     Play / Pause

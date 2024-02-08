@@ -18,11 +18,11 @@
 
 ## Now Playing (np)
 
-Enjoy a simple "Now Playing" widget from your terminal.  Uses standard Unix tooling/piping, AppleScript for interfacing with Apple Music, and [imgcat](https://iterm2.com/documentation-images.html) for displaying the album art images.  It also includes keyboard shortcut bindings for basic playback controls.  Apart from toggling shuffle, toggling repeat, and changing the Music.app-specific volume, the other controls are already accessible from the special Fn key functions/touch bar.  
+Enjoy a simple "Now Playing" widget from your terminal.  Uses standard Unix tooling/piping, AppleScript for interfacing with Apple Music, and [imgcat](https://iterm2.com/documentation-images.html) for displaying the album art images.  It also includes keyboard shortcut bindings for basic playback controls.  Apart from toggling shuffle, toggling repeat, and changing the Music.app-specific volume, the other controls are already accessible from the special Fn key functions/touch bar.
 
 Dependencies: [imgcat](https://iterm2.com/documentation-images.html) (unless you always use text mode)
 
-Configuration: 
+Configuration:
 
 * Place album-art.applescript at ~/Library/Scripts/album-art.applescript, or configure a valid path in the np() func of am.sh for wherever you decide to keep it
 * (Optional) In the np() func of am.sh, adjust the `-W` dimension of the album art (look for the two calls to `imgcat`) to ensure a square appearance with your terminal emulator's line spacing
@@ -53,13 +53,13 @@ Q                     Quit np and Music.app
 ?                     Show / hide keybindings
 ```
 
-Notes: 
+Notes:
 * Attempting to play the previous track with an empty queue will kill the script
 * album-art.applescript is a modified version of [this script,](https://dougscripts.com/itunes/2014/10/save-current-tracks-artwork/) written by AppleScript wizard [Doug Adams](https://dougscripts.com/itunes/faq_cont.php)♡
 
 ## List
 
-List out all song groupings of a specific type or all songs of a specific song grouping in your library.  The song grouping type is dictated by the flag you pass. By calling list without specifying a title after the flag, you will see a printout of all the titles of that flag's collection type. 
+List out all song groupings of a specific type or all songs of a specific song grouping in your library.  The song grouping type is dictated by the flag you pass. By calling list without specifying a title after the flag, you will see a printout of all the titles of that flag's collection type.
 
 Usage (aliased): `am list [-grouping] [name]`
 
@@ -77,7 +77,7 @@ list -g PATTERN       List all songs in the genre PATTERN.
 ```
 Example: `am list -r In Rainbows` (not case-sensitive)
 
-Notes: 
+Notes:
 * Music.app does not need to be open or closed; it should launch itself silently when `list` is called
 * Only works on tracks saved to your Library (but they do not need to be downloaded)
 * Remember to escape any special characters or punctuation if passing a title (or wrap it in double quotes)
@@ -106,7 +106,7 @@ play -l               Play from your entire library.
 ```
 Example: `am play -a Radiohead` (not case-sensitive)
 
-Notes: 
+Notes:
 * Music.app does not need to be open or closed; it should launch itself silently when `play` is called
 * Only works on tracks saved to your Library (but they do not need to be downloaded)
 * Remember to escape any special characters or punctuation if passing a title (or wrap it in double quotes)
@@ -114,9 +114,9 @@ Notes:
 
 ### Optional AirPlay Snippet (not in src)
 
-Toggle the Music.app AirPlay audio output for a specific device. 
+Toggle the Music.app AirPlay audio output for a specific device.
 
-Configuration: 
+Configuration:
 * Adjust the device strings to a device hostname of your choosing
 * Ideally adapt the argument name to match
 

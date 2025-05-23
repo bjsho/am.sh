@@ -1,5 +1,4 @@
-<img src="https://raw.githubusercontent.com/bengiv/bengiv/main/assets/banners/am.sh.png">
----
+# <img src="https://raw.githubusercontent.com/bengiv/bengiv/main/assets/banners/am.sh.png">
 
 *Tested on macOS 12 (likely to work on macOS 10.15, 11, 13). **Can be called with the system default zsh.** I recommend aliasing am.sh to `alias am=zsh path/to/am.sh`, or moving its three individual functions into your .zshrc.*
 
